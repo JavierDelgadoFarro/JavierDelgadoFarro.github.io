@@ -11,7 +11,8 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBlue: '#1e3a8a',
+                        neonPurple: '#b829e3',
+                        neonCyan: '#00ffff',
                     }
                 }
             }
@@ -24,58 +25,125 @@
             100% { transform: translateY(0px); }
         }
         .float { animation: float 3s ease-in-out infinite; }
+
+        @keyframes neonGlow {
+            0%, 100% { box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px currentColor, 0 0 35px currentColor, 0 0 40px currentColor, 0 0 50px currentColor, 0 0 75px currentColor; }
+            50% { box-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 7px #fff, 0 0 10px currentColor, 0 0 17px currentColor, 0 0 20px currentColor, 0 0 25px currentColor, 0 0 37px currentColor; }
+        }
+        .neon-glow { animation: neonGlow 1.5s ease-in-out infinite alternate; }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        .typing-animation {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #00ffff;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00ffff; }
+        }
     </style>
 </head>
-<body class="bg-darkBlue text-white font-mono">
-    <header class="container mx-auto p-6">
-        <div class="flex items-center justify-between">
-            <h1 class="text-4xl font-bold">Juan</h1>
-            <div class="text-2xl">👨🏻‍💻</div>
-        </div>
-        <p class="mt-2 text-xl">Ingeniero de Sistemas | Programador Senior</p>
-    </header>
-
-    <main class="container mx-auto p-6">
-        <section id="about" class="mb-12">
-            <h2 class="text-3xl font-semibold mb-4">Sobre mí</h2>
-            <p class="text-lg">Soy un apasionado ingeniero de sistemas con años de experiencia en desarrollo de software. Mi bigote es tan robusto como mi código, y mi café tan oscuro como mi tema favorito de IDE.</p>
-        </section>
-
-        <section id="skills" class="mb-12">
-            <h2 class="text-3xl font-semibold mb-4">Habilidades</h2>
-            <ul class="grid grid-cols-2 gap-4">
-                <li class="bg-blue-900 p-3 rounded-lg text-center float">JavaScript</li>
-                <li class="bg-blue-900 p-3 rounded-lg text-center float" style="animation-delay: 0.5s;">Python</li>
-                <li class="bg-blue-900 p-3 rounded-lg text-center float" style="animation-delay: 1s;">React</li>
-                <li class="bg-blue-900 p-3 rounded-lg text-center float" style="animation-delay: 1.5s;">Node.js</li>
-                <li class="bg-blue-900 p-3 rounded-lg text-center float" style="animation-delay: 2s;">SQL</li>
-                <li class="bg-blue-900 p-3 rounded-lg text-center float" style="animation-delay: 2.5s;">Git</li>
-            </ul>
-        </section>
-
-        <section id="projects" class="mb-12">
-            <h2 class="text-3xl font-semibold mb-4">Proyectos Destacados</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-blue-800 p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
-                    <h3 class="text-xl font-semibold mb-2">Sistema de Gestión de Inventario</h3>
-                    <p>Desarrollé un sistema robusto para manejar inventarios en tiempo real utilizando React y Node.js.</p>
-                </div>
-                <div class="bg-blue-800 p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
-                    <h3 class="text-xl font-semibold mb-2">API de Inteligencia Artificial</h3>
-                    <p>Implementé una API de IA para procesamiento de lenguaje natural utilizando Python y TensorFlow.</p>
-                </div>
+<body class="bg-gray-900 text-gray-100 font-mono">
+    <div class="stars absolute inset-0 z-0"></div>
+    <div class="relative z-10">
+        <header class="container mx-auto p-6">
+            <div class="flex items-center justify-between">
+                <h1 class="text-4xl font-bold text-neonCyan typing-animation">Juan</h1>
+                <div class="text-2xl">👨🏻‍💻</div>
             </div>
-        </section>
+            <p class="mt-2 text-xl text-neonPurple">Ingeniero de Sistemas | Programador Senior</p>
+        </header>
 
-        <section id="contact" class="text-center">
-            <h2 class="text-3xl font-semibold mb-4">Contacto</h2>
-            <p class="mb-4">¿Interesado en trabajar juntos? ¡Contáctame!</p>
-            <a href="mailto:juan@example.com" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block transition-colors duration-300">Enviar Email</a>
-        </section>
-    </main>
+        <main class="container mx-auto p-6">
+            <section id="about" class="mb-12">
+                <h2 class="text-3xl font-semibold mb-4 text-neonCyan">Sobre mí</h2>
+                <p class="text-lg">Soy un apasionado ingeniero de sistemas con años de experiencia en desarrollo de software. Mi bigote es tan robusto como mi código, y mi café tan oscuro como mi tema favorito de IDE.</p>
+            </section>
 
-    <footer class="text-center py-6 mt-12 border-t border-blue-700">
-        <p>&copy; 2024 Juan - Todos los derechos reservados</p>
-    </footer>
+            <section id="skills" class="mb-12">
+                <h2 class="text-3xl font-semibold mb-4 text-neonCyan">Habilidades</h2>
+                <ul class="grid grid-cols-2 gap-4">
+                    <li class="bg-gray-800 p-3 rounded-lg text-center float neon-glow text-neonPurple">JavaScript</li>
+                    <li class="bg-gray-800 p-3 rounded-lg text-center float neon-glow text-neonCyan" style="animation-delay: 0.5s;">Python</li>
+                    <li class="bg-gray-800 p-3 rounded-lg text-center float neon-glow text-neonPurple" style="animation-delay: 1s;">React</li>
+                    <li class="bg-gray-800 p-3 rounded-lg text-center float neon-glow text-neonCyan" style="animation-delay: 1.5s;">Node.js</li>
+                    <li class="bg-gray-800 p-3 rounded-lg text-center float neon-glow text-neonPurple" style="animation-delay: 2s;">SQL</li>
+                    <li class="bg-gray-800 p-3 rounded-lg text-center float neon-glow text-neonCyan" style="animation-delay: 2.5s;">Git</li>
+                </ul>
+            </section>
+
+            <section id="projects" class="mb-12">
+                <h2 class="text-3xl font-semibold mb-4 text-neonCyan">Proyectos Destacados</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-lg transform hover:scale-105 transition-transform duration-300 border border-neonPurple">
+                        <h3 class="text-xl font-semibold mb-2 text-neonPurple">Sistema de Gestión de Inventario</h3>
+                        <p>Desarrollé un sistema robusto para manejar inventarios en tiempo real utilizando React y Node.js.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg transform hover:scale-105 transition-transform duration-300 border border-neonCyan">
+                        <h3 class="text-xl font-semibold mb-2 text-neonCyan">API de Inteligencia Artificial</h3>
+                        <p>Implementé una API de IA para procesamiento de lenguaje natural utilizando Python y TensorFlow.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="text-center">
+                <h2 class="text-3xl font-semibold mb-4 text-neonCyan">Contacto</h2>
+                <p class="mb-4">¿Interesado en trabajar juntos? ¡Contáctame!</p>
+                <a href="mailto:juan@example.com" class="bg-gray-800 hover:bg-gray-700 text-neonCyan font-bold py-2 px-4 rounded inline-block transition-colors duration-300 border border-neonCyan hover:text-neonPurple hover:border-neonPurple">Enviar Email</a>
+            </section>
+        </main>
+
+        <footer class="text-center py-6 mt-12 border-t border-gray-800">
+            <p class="text-neonCyan">&copy; 2024 Juan - Todos los derechos reservados</p>
+        </footer>
+    </div>
+
+    <script>
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            const starCount = 100;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                star.style.animationDelay = `${Math.random() * 3}s`;
+                starsContainer.appendChild(star);
+            }
+        }
+
+        createStars();
+    </script>
+
+    <style>
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 3s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+    </style>
 </body>
 </html>
