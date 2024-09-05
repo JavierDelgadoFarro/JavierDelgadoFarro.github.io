@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan - Ingeniero de Sistemas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBlue: '#1e3a8a',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .float { animation: float 3s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-darkBlue text-white font-mono">
+    <header class="container mx-auto p-6">
+        <div class="flex items-center justify-between">
+            <h1 class="text-4xl font-bold">Juan</h1>
+            <div class="text-2xl">👨🏻‍💻</div>
+        </div>
+        <p class="mt-2 text-xl">Ingeniero de Sistemas | Programador Senior</p>
+    </header>
+
+    <main class="container mx-auto p-6">
+        <section id="about" class="mb-12">
+            <h2 class="text-3xl font-semibold mb-4">Sobre mí</h2>
+            <p class="text-lg">Soy un apasionado ingeniero de sistemas con años de experiencia en desarrollo de software. Mi bigote es tan robusto como mi código, y mi café tan oscuro como mi tema favorito de IDE.</p>
+        </section>
+
+        <section id="skills" class="mb-12">
+            <h2 class="text-3xl font-semibold mb-4">Habilidades</h2>
+            <ul class="grid grid-cols-2 gap-4">
+                <li class="bg-blue-900 p-3 rounded-lg text-center float">JavaScript</li>
+                <li class="bg-blue-900 p-3 rounded-lg text-center float" style="animation-delay: 0.5s;">Python</li>
+                <li class="bg-blue-900 p-3 rounded-lg text-center float" style="animation-delay: 1s;">React</li>
+                <li class="bg-blue-900 p-3 rounded-lg text-center float" style="animation-delay: 1.5s;">Node.js</li>
+                <li class="bg-blue-900 p-3 rounded-lg text-center float" style="animation-delay: 2s;">SQL</li>
+                <li class="bg-blue-900 p-3 rounded-lg text-center float" style="animation-delay: 2.5s;">Git</li>
+            </ul>
+        </section>
+
+        <section id="projects" class="mb-12">
+            <h2 class="text-3xl font-semibold mb-4">Proyectos Destacados</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-blue-800 p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-2">Sistema de Gestión de Inventario</h3>
+                    <p>Desarrollé un sistema robusto para manejar inventarios en tiempo real utilizando React y Node.js.</p>
+                </div>
+                <div class="bg-blue-800 p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-2">API de Inteligencia Artificial</h3>
+                    <p>Implementé una API de IA para procesamiento de lenguaje natural utilizando Python y TensorFlow.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="text-center">
+            <h2 class="text-3xl font-semibold mb-4">Contacto</h2>
+            <p class="mb-4">¿Interesado en trabajar juntos? ¡Contáctame!</p>
+            <a href="mailto:juan@example.com" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block transition-colors duration-300">Enviar Email</a>
+        </section>
+    </main>
+
+    <footer class="text-center py-6 mt-12 border-t border-blue-700">
+        <p>&copy; 2024 Juan - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
